@@ -5,10 +5,10 @@ async function getAll() {
   return prisma.user.findMany();
 }
 
-async function getOne({ id, name }) {
-  return prisma.user.findUnique({
+async function getMany({ id, name }) {
+  return prisma.user.findMany({
     where: {
-      OR: [{ id }, { name }],
+      OR: [{ id: parseInt(id, 10) }, { name: name || undefined }],
     },
   });
 }
@@ -17,7 +17,15 @@ async function getUsers({ id, name }) {
   if (!id && !name) {
     return getAll();
   }
-  return getOne({ id, name });
+  return getMany({ id, name });
+}
+
+async function getUser({ id, name }) {
+  return prisma.user.findFirst({
+    where: {
+      OR: [{ id: parseInt(id, 10) }, { name: name || undefined }],
+    },
+  });
 }
 
 async function createUser({ input }) {
@@ -32,6 +40,7 @@ async function createUser({ input }) {
 
 const Users = {
   getUsers,
+  getUser,
   createUser,
 };
 
