@@ -5,12 +5,9 @@
     "eslint.validate": [
         "javascript"
     ],
-    "[javascriptreact]": {
+    "[javascript]": {
         "editor.indentSize": 2
-    },
-    "[typescriptreact]": {
-        "editor.indentSize": 2
-    },    
+    }, 
     "[prisma]": {
         "editor.indentSize": 2
     }
