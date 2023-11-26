@@ -1,0 +1,17 @@
+{
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "eslint.validate": [
+        "javascript"
+    ],
+    "[javascriptreact]": {
+        "editor.indentSize": 2
+    },
+    "[typescriptreact]": {
+        "editor.indentSize": 2
+    },    
+    "[prisma]": {
+        "editor.indentSize": 2
+    }
+}
