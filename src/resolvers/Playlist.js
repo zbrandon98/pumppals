@@ -1,5 +1,5 @@
-import Playlists from "../services/Playlist.js";
-import Users from "../services/User.js";
+import Playlists from "../services/Playlists.js";
+import Users from "../services/Users.js";
 
 const resolvers = {
   Playlist: {
@@ -7,8 +7,8 @@ const resolvers = {
     songs: ({ id }) => Playlists.getSongs({ id }),
   },
   Query: {
-    playlist: (_, { id }) => Playlists.getOne({ id }),
-    playlists: () => Playlists.getAll(),
+    playlist: (_, { id }) => Playlists.find({ id }),
+    playlists: () => Playlists.findAll(),
   },
   Mutation: {
     createPlaylist: (_, { userId, input }) =>

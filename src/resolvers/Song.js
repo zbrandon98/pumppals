@@ -1,18 +1,15 @@
-import Songs from "../services/Song.js";
+import Songs from "../services/Songs.js";
 
 const resolvers = {
   Song: {
     playlists: () => null,
   },
   Query: {
-    song: () => Songs.getOne(),
-    songs: () => Songs.getAll(),
+    song: (_, { id }) => Songs.find({ id }),
+    songs: () => Songs.findAll(),
   },
   Mutation: {
-    createSong: (_, { input }) => {
-      console.log(input);
-      return Songs.create({ input });
-    },
+    createSong: (_, { input }) => Songs.create({ input }),
   },
 };
 export default resolvers;
