@@ -1,4 +1,5 @@
-import Users from "./User.js";
-import Posts from "./Post.js";
+import User from "./User.js";
+import Playlist from "./Playlist.js";
+import Song from "./Song.js";
 
-export default [Users, Posts];
+export default [User, Playlist, Song];

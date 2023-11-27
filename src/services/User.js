@@ -20,10 +20,10 @@ async function getUsers({ id, name }) {
   return getMany({ id, name });
 }
 
-async function getUser({ id, name }) {
-  return prisma.user.findFirst({
+async function getUser({ id }) {
+  return prisma.user.findUnique({
     where: {
-      OR: [{ id: parseInt(id, 10) }, { name: name || undefined }],
+      id,
     },
   });
 }
@@ -38,10 +38,19 @@ async function createUser({ input }) {
   return user;
 }
 
+async function getPlaylists({ id }) {
+  return prisma.playlist.findMany({
+    where: {
+      userId: id,
+    },
+  });
+}
+
 const Users = {
-  getUsers,
   getUser,
+  getUsers,
   createUser,
+  getPlaylists,
 };
 
 export default Users;
