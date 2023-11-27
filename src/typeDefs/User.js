@@ -3,7 +3,8 @@ import gql from "graphql-tag";
 const typeDefs = gql`
   type User {
     id: ID!
-    name: String
+    name: String!
+    playlists: [Playlist]
   }
 
   input UserInput {
@@ -11,12 +12,14 @@ const typeDefs = gql`
   }
 
   type Query {
-    user(id: ID, name: String): User
-    users(id: ID, name: String): [User]
+    user(id: ID!): User
+    users(ids: [ID]!): [User]
   }
 
   type Mutation {
     createUser(input: UserInput!): User
+    updateUser(id: ID!, input: UserInput!): User
+    deleteUser(id: ID!): Boolean
   }
 `;
 export default typeDefs;

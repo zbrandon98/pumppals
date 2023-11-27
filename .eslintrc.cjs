@@ -23,13 +23,13 @@ module.exports = {
     ],
     semi: ["error", "always"],
     quotes: ["error", "double"],
-    "max-len": [2, { code: 80, tabWidth: 2 }],
     "no-console": "off",
     "import/extensions": 0,
     "no-unused-vars": [
       "error",
       { vars: "all", varsIgnorePattern: "^_*$", argsIgnorePattern: "^_*$" },
     ],
+    "implicit-arrow-linebreak": 0,
   },
   overrides: [
     {
