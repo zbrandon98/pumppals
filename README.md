@@ -99,7 +99,7 @@ After creating the ```[DataType].js``` file, add it to the /src/resolvers/index.
 #### Services
 Services are not built into GraphQL, but most people split the functionality from resolvers into the definitions and the actual logic behind the scenes. Our codebase defines these functions as static methods to a class that has the same name as the DataType but **PURAL**.
 
-Create a ```[DataType(s)].js`` file in /src/services and copy the template from other files.
+Create a ```[DataType(s)].js``` file in /src/services and copy the template from other files.
 
 ## Final Notes
 As you can see, there is a lot of code to edit everytime you want to make new feature in the database. Basic Apollo/GraphQL servers keep everything in one file, but that is not scalable. In order to keep it scalable, I had to spend a lot of time setting up this codebase, which will never be exactly the same as any other codebase you see someone else set up in the future (since there are so many tradeoffs to consider).
