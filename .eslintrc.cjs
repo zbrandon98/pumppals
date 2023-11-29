@@ -30,6 +30,7 @@ module.exports = {
       { vars: "all", varsIgnorePattern: "^_*$", argsIgnorePattern: "^_*$" },
     ],
     "implicit-arrow-linebreak": 0,
+    "linebreak-style": 0,
   },
   overrides: [
     {
