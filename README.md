@@ -40,16 +40,19 @@ ESLint is an extension that ensures that your code adheres to certain code style
    ```
 
 ## 3. Postgres
-1. Install postgres on your machine by following this tutorial. https://www.sqlshack.com/setting-up-a-postgresql-database-on-mac/. If you're on windows, the steps are the same once postgres is up and running: create a new user and give them CREATEDB permissions.
-2. Create a new database for your local development.
+1. Install Postgres by following this tutorial: https://www.prisma.io/dataguide/postgresql/setting-up-a-local-postgresql-database#setting-up-postgresql-on-windows
+2. Follow this tutorial to create a user and create a database: https://commandprompt.com/education/how-to-create-user-create-database-grant-privileges-in-postgresql/
+3. Grant the user you just created CREATEDB permissions with the command ```ALTER USER username CREATEDB;```
 
-
-## 4. DBeaver/TablePlus/PGAdmin
-1. Install one of these tools (I use DBeaver but people literally use any of these and they are all the same). This is so you can view your postgres database with a nice UI. It also draws out some ER diagrams for you.
-2. Connect to your database using your User Interface of choice.
+## 4. DBeaver
+By now, you should have a database and user created in postgres. This means you can try connecting to it in DBeaver, a nice UI tool that allows you to view your database and also view ER diagrams.
+1. Connect to your database by clicking the new database connection in the top left corner. It should look like a Plug with a green + sign.
+2. Choose Postgres when asked for Database type.
+3. You should only have to change 3 things: "Database", "Username", and "Password". Change those to the name of the database you created, the name of your user, and the password you chose for that user.
+4. If it works, then you should be able to click into the database connection and view the contents by going through it like a file structure. The path for our data will be ```Databases --> [dbname] --> Schemas --> public```. There shouldn't really be anything to see but if you can click around the "file structure" it means you're connected.
 
 ## 5. environment file
-Create a file called ```.env``` in the root of the codebase and paste in the following (username, password, and dbname to fit your own information).
+Create a file called ```.env``` in the root of the codebase and paste in the following (replace ```username```, ```password```, and ```db_name``` to fit your own information which is the same as what you input into DBeaver).
 ```
 DATABASE_URL="postgresql://username:password@localhost:5432/db_name?schema=public"
 ```
