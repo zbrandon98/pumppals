@@ -103,6 +103,10 @@ Run a linting test for the /src folder:
 npm run lint
 ```
 
+## Migrations
+If you want to reset the database, or if your migration history is not in sync with the database, try running: ```npx prisma migrate dev```.  
+This will reset your database and make sure your database is in sync with the prisma schema.
+
 # Contributing to the Server
 ## Adding a new Data Type
 ### Prisma
