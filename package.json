@@ -8,7 +8,7 @@
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
     "lint": "eslint src/",
-    "schema:gen": "cd ./prisma/models && rm -rf ../schema.prisma && cat .config.prisma >> ../schema.prisma && cat *.prisma >> ../schema.prisma && cd .. && prisma format",
+    "schema:gen": "node ./scripts/schema_gen.cjs",
     "db:migrate": "npx prisma migrate dev",
     "db:view": "npx prisma studio"
   },
