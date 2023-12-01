@@ -1,6 +1,26 @@
+# Some Notes Before You Begin
+Make sure you follow all of the steps in "Setting Up Your Development Environment" before attempting to even look at the code. 
+
+Also, read through the docs linked under the "Contributing to the Server" section so you can get a feel for the tools and syntax we will be going through. For your convenience, I have linked them here as well.
+
+**Documentation to read through for Prisma**
+- https://www.prisma.io/docs/concepts/components/prisma-schema/data-model#defining-fields
+- https://www.prisma.io/docs/concepts/components/prisma-schema/relations
+- https://www.prisma.io/docs/concepts/components/prisma-client/crud
+
+**Resources on Database Migrations**
+- https://www.astera.com/type/blog/database-migration-what-it-is-and-how-it-is-done/
+
+**Resources on GraphQL/Apollo**  
+These are pulled from https://www.apollographql.com/tutorials/browse
+- https://www.apollographql.com/tutorials/lift-off-part1
+- https://www.apollographql.com/tutorials/lift-off-part2
+- https://www.apollographql.com/tutorials/lift-off-part3
+- https://www.apollographql.com/tutorials/lift-off-part4
+
 # Setting Up Your Development Environment
 
-Before you begin, create a folder for this cohort wherever you want to store any GitHub repos that you will be cloning on your device in this cohort. You can name it include, cohort, or literally anything you want to. If you choose to name it "include", do not use a '#' in your folder name, it'll cause a bunch of problems later.
+Before you begin, create a folder for this team wherever you want to store any GitHub repos that you will be cloning on your device in this cohort. You can name it include, platform_team, or literally anything you want to. If you choose to name it "include", **do not use a '#' in your folder name**, it'll cause a bunch of problems later.
 
 ## 1. NODE.JS
 
@@ -15,6 +35,9 @@ Node.js is a runtime environment that is used to run Javascript code. It comes w
    c. Find the variable _Path_ and click on _Edit_.
    d. Check for _C:\Program Files\nodejs\\_ in the list of paths that appear. If it's not there, click on _New_ and add it to the list.
    e. Restart VSCode and it should ideally work now.
+
+**If you already have node**  
+Try to update your node version to v21.1.0 so you don't get random warnings.
 
 ## 2. ESLINT EXTENSION
 
@@ -56,8 +79,13 @@ Create a file called ```.env``` in the root of the codebase and paste in the fol
 ```
 DATABASE_URL="postgresql://username:password@localhost:5432/db_name?schema=public"
 ```
-## Getting Started
 
+## 6. Other Extensions
+For Prisma file highlighting: https://marketplace.visualstudio.com/items?itemName=Prisma.prisma
+
+For GraphQL schema highlighting: https://marketplace.visualstudio.com/items?itemName=GraphQL.vscode-graphql-syntax
+
+## Getting Started
 Set up:
 
 `npm install` for package installations. This will install all packages specified in the package.json file.
@@ -74,11 +102,21 @@ Run a linting test for the /src folder:
 ```bash
 npm run lint
 ```
+
+# Contributing to the Server
 ## Adding a new Data Type
 ### Prisma
 Prisma is our ORM (object relational mapping). It allows us to manipulate our database without writing raw SQL(which is very error prone). It transforms our CRUD operations into an object oriented style.
 
+**Documentation to read through for Prisma**
+- https://www.prisma.io/docs/concepts/components/prisma-schema/data-model#defining-fields
+- https://www.prisma.io/docs/concepts/components/prisma-schema/relations
+- https://www.prisma.io/docs/concepts/components/prisma-client/crud
+
 Prisma also creates database migrations for us. Database Migrations are effectively incremental SQL commands that are fed to our database one by one to change schemas or seed the database.
+
+**Resources on Database Migrations**
+- https://www.astera.com/type/blog/database-migration-what-it-is-and-how-it-is-done/
 
 To create a new data type, your first step is to create a new ```[DataType].schema``` file in the /prisma/models folder where the datatype name is **singular** (Post, User, Song, Playlist, UserInterface, ColorPalette).
 
@@ -86,6 +124,13 @@ After you're done making the schema, run ```npm run schema:gen``` to compile it.
 
 ### GraphQL
 GraphQL is our REST API alternative. We are running an Apollo/GraphQL server on express. GraphQL has the benefit of allowing us to specify the structure of the data we want back from the server. This way, we avoid receiving excess data.
+
+**Resources on GraphQL/Apollo**  
+These are pulled from https://www.apollographql.com/tutorials/browse
+- https://www.apollographql.com/tutorials/lift-off-part1
+- https://www.apollographql.com/tutorials/lift-off-part2
+- https://www.apollographql.com/tutorials/lift-off-part3
+- https://www.apollographql.com/tutorials/lift-off-part4
 
 #### TypeDefs
 When creating a new DataType, similarly to the Prisma schema, you have to define the schema in GraphQL, using the same DataType and field names as you did in the prisma file. To do so, add a file called ```[DataType].js``` in the /src/typeDefs folder once again using **singular** names for the datatype.
