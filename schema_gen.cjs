@@ -12,7 +12,7 @@ function puts(error, stdout, stderr) {
 if (os.type() === "Linux" || os.type() === "Darwin") {
   exec(`bash ./scripts/${SCRIPTNAME}.sh`, puts);
 } else if (os.type() === "Windows_NT") {
-  exec(`./scripts/${SCRIPTNAME}.bat`, puts);
+  exec(`"./scripts/${SCRIPTNAME}.bat"`, puts);
 } else {
   throw new Error(`Unsupported OS found: ${os.type()}`);
 }
