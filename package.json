@@ -9,8 +9,8 @@
     "dev": "nodemon src/index.js",
     "lint": "eslint src/",
     "schema:gen": "run-script-os",
-    "schema:gen:nix": "bash ./scripts/schema_gen.sh",
-    "schema:gen:windows": "./scripts/schema_gen.bat",
+    "schema:gen:nix": "bash ./scripts/schema_gen/schema_gen.sh",
+    "schema:gen:windows": ".\\scripts\\schema_gen\\schema_gen.bat",
     "db:migrate": "npx prisma migrate dev",
     "db:view": "npx prisma studio"
   },
