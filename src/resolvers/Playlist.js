@@ -3,7 +3,7 @@ import Users from "../services/Users.js";
 
 const resolvers = {
   Playlist: {
-    user: ({ userId }) => Users.getUser({ id: userId }),
+    user: ({ userId }) => Users.find({ id: userId }),
     songs: ({ id }) => Playlists.getSongs({ id }),
   },
   Query: {
