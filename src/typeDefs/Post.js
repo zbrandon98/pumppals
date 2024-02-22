@@ -23,3 +23,5 @@ const typeDefs = gql`
         deletePost(id: ID!): Boolean
     }
 `;
+
+export default typeDefs;
