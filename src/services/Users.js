@@ -31,7 +31,7 @@ export default class Users {
     });
   }
 
-  // UDPATE
+  // UPDATE
   static async update({ id, input }) {
     try {
       const user = await prisma.user.update({
