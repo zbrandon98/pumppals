@@ -4,7 +4,6 @@ const typeDefs = gql`
   type User {
     id: ID!
     name: String!
-    playlists: [Playlist]
   }
 
   input UserInput {
