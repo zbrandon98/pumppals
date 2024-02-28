@@ -3,23 +3,17 @@ import gql from "graphql-tag";
 const typeDefs = gql`
     type Post {
         id: ID!
-        title: String!
-        content: String!
-    }
-
-    input PostInput {
-        title: String!
         content: String!
     }
 
     type Query {
         post(id: ID!): Post
-        posts(ids: [ID]!): [Post]
+        posts: [Post]
     }
 
     type Mutation {
-        createPost(input: PostInput!): Post
-        updatePost(id: ID!, input: PostInput!): Post
+        createPost(content: String!): Post
+        updatePost(id: ID!, content: String!): Post
         deletePost(id: ID!): Boolean
     }
 `;
