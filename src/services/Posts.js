@@ -1,10 +1,11 @@
 import prisma from "../prisma/client.js";
 
 export default class Posts {
-    static async create({ content }) {
-        return prisma.post.create({
+    static async create({ content, postedBy }) {
+        return await prisma.post.create({
             data: {
                 content,
+                postedBy
             },
         });
     }

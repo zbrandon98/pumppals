@@ -1,18 +1,7 @@
 import prisma from "../prisma/client.js";
 
 export default class Users {
-  // CREATE
-  static async create({ input }) {
-    const { name } = input;
-    const user = await prisma.user.create({
-      data: {
-        name,
-      },
-    });
-    return user;
-  }
 
-  // READ
   static async find({ id }) {
     return prisma.user.findUnique({
       where: {
@@ -21,51 +10,25 @@ export default class Users {
     });
   }
 
-  static async findMany({ ids }) {
-    return prisma.user.findMany({
-      where: {
-        id: {
-          in: ids,
-        },
-      },
-    });
+  static async findMany() {
+    return prisma.user.findMany();
   }
 
-  // UPDATE
-  static async update({ id, input }) {
-    try {
-      const user = await prisma.user.update({
-        where: {
-          id,
-        },
-        data: input,
-      });
-      return user;
-    } catch (e) {
-      return null;
+  static async signup({ email, password, name }) {
+    const user = await prisma.user.create({ data: { email, password, name}})
+    if (!user) {
+      throw new Error('No such user found')
     }
+
+    return user
   }
 
-  // DELETE
-  static async delete({ id }) {
-    try {
-      await prisma.user.delete({
-        where: {
-          id,
-        },
-      });
-      return true;
-    } catch (e) {
-      return false;
+  static async login({ email, password }) {
+    const user = await prisma.user.findUnique({where: { email, password }})
+    if (!user) {
+      throw new Error('No such user found')
     }
-  }
 
-  // OTHER
-  static async getPlaylists({ id }) {
-    return prisma.playlist.findMany({
-      where: {
-        userId: id,
-      },
-    });
+    return user;
   }
 }

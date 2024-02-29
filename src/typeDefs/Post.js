@@ -4,6 +4,7 @@ const typeDefs = gql`
     type Post {
         id: ID!
         content: String!
+        postedBy: User
     }
 
     type Query {
