@@ -10,6 +10,9 @@ const resolvers = {
         updatePost: (_, { id, content }) => Posts.update({ id, content }),
         deletePost: (_, { id }) => Posts.delete({ id }),
     },
+    Post: {
+        postedBy: (parent, args) => Posts.getUser(parent, args)
+    }
 }
 
 export default resolvers;

@@ -12,8 +12,15 @@ const typeDefs = gql`
         posts: [Post]
     }
 
+    input UserInput {
+        id: ID
+        name: String
+        email: String
+        password: String
+    }
+
     type Mutation {
-        createPost(content: String!): Post
+        createPost(content: String!, postedBy: UserInput): Post
         updatePost(id: ID!, content: String!): Post
         deletePost(id: ID!): Boolean
     }

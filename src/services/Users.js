@@ -23,12 +23,20 @@ export default class Users {
     return user
   }
 
-  static async login({ email, password }) {
-    const user = await prisma.user.findUnique({where: { email, password }})
+  static async login({ email }) {
+    const user = await prisma.user.findUnique({where: { email }})
     if (!user) {
       throw new Error('No such user found')
     }
 
     return user;
   }
+
+  static async getAllPosts(parent, args) {
+    return await prisma.user.findUnique({
+      where: { id: parent.id }
+    })
+    .posts();
+  }
+
 }

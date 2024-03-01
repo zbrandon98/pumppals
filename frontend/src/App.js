@@ -1,9 +1,9 @@
 import './styles/App.css';
-import Song from './components/song/Song';
+import Signup from './components/signup/Signup'
 function App() {
   return (
     <div className="App">
-      <Song />
+      <Signup/>
     </div>
   );
 }

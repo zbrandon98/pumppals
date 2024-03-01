@@ -2,10 +2,18 @@ import prisma from "../prisma/client.js";
 
 export default class Posts {
     static async create({ content, postedBy }) {
+
+        
         return await prisma.post.create({
             data: {
                 content,
-                postedBy
+                postedBy : {
+                    connect: {
+                        id: postedBy.id
+                    },
+
+
+                }
             },
         });
     }
@@ -48,5 +56,12 @@ export default class Posts {
         } catch (e) {
             return false;
         }
+    }
+
+    static async getUser(parent, args) {
+        return await prisma.post.findUnique({
+            where: { id: parent.id }
+        })
+        .postedBy();
     }
 }
