@@ -1,0 +1,37 @@
+/* Signup.css */
+
+.form-container {
+    max-width: 200px;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+}
+  
+.form-container label {
+  display: block;
+  margin-bottom: 2px;
+}
+  
+.form-container input {
+  background-color: rgb(29, 50, 68);
+  width: 100%;
+  padding-top: 2px;
+  margin-bottom: 5px;
+  border: 1px solid rgb(45, 77, 105);
+  border-radius: 3px;
+  color: white;
+}
+  
+.form-container input[type="submit"] {
+  background-color: rgb(29, 50, 68);
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 2px;
+}
+
+.form-container input[type="submit"]:hover {
+  background-color: #012e5e;
+}
+  

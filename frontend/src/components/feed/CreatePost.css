@@ -1,0 +1,30 @@
+.create-post-container {
+    width: 700px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-post-container textarea {
+    width: 450px;
+    height: 70px;
+    border-radius: 10px;
+    border-color: rgb(29, 50, 68);
+    background-color: rgb(45, 77, 105);
+    color: white;
+}
+
+.create-post-container label {
+    width: 450px;
+    height: 70px;
+}
+
+.create-post-container button {
+    width: 460px;
+    height: 30px;
+    background-color: rgb(29, 50, 68);
+    border-color: rgb(29, 50, 68);
+    color: white;
+}

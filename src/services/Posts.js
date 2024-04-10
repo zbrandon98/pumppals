@@ -11,8 +11,6 @@ export default class Posts {
                     connect: {
                         id: postedBy.id
                     },
-
-
                 }
             },
         });

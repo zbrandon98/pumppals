@@ -1,0 +1,43 @@
+/* Signup.css */
+
+.form-container-login {
+    max-width: 200px;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex
+}
+  
+.form-container-login label {
+  display: block;
+  margin-bottom: 2px;
+}
+  
+.form-container-login input {
+  background-color: rgb(29, 50, 68);
+  color: white;
+  width: 100%;
+  padding-top: 2px;
+  margin-bottom: 5px;
+  border: 1px solid rgb(45, 77, 105);
+  border-radius: 3px;
+}
+  
+.form-container-login input[type="submit"] {
+  background-color: rgb(29, 50, 68);
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 2px;
+}
+
+.form-container-login button {
+  background-color: rgb(29, 50, 68);
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 2px;
+  width: 200px;
+}
+  
